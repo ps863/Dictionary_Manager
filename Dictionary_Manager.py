@@ -40,6 +40,18 @@ class Dictionary_Manager:
                 count += 1
             return out_dict
         
+        #If indexing is wanted
         if (indexed == True):
-            raise NotImplementedError ("Feature yet to be implemented")
+            keys_in_dict = list(self.in_dict.keys())  #list of keys of input dictionary
+            keys_in_dict = random.shuffle(keys_in_dict) #Shuffled list of keys 
+
+            count = 0
+            out_dict = {}
+            for key in keys_in_dict:
+                if (count == K):
+                    break
+                out_dict[count] = self.in_dict[key] #Add sampled entry into output dictionary. Key is index
+                count += 1
+            return out_dict
         
+        raise ValueError("Invalid parameter for indexed. Indexed can either be true or false only")
