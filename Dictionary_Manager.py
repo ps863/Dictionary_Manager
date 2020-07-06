@@ -55,3 +55,37 @@ class Dictionary_Manager:
             return out_dict
         
         raise ValueError("Invalid parameter for indexed. Indexed can either be true or false only")
+
+
+        def value_sort_alphabetically (decending = False):
+            """
+            Sorts the dictionary such that all values are alphabetically arranged
+
+            Parameters:
+            decending : By default False. If True, follow an order from Z to A. If False, follow an order from A to Z
+
+            Condition: 
+            No key should have more than one value each 
+            All values should be strings
+            """
+
+            # Implement the error handling 
+
+            # A to Z
+            if (decending == False):
+                values = list (self.in_dict.values)
+                values_sorted = sorted(values)
+
+                new_dict = {}
+            
+                for value in values_sorted:
+                    for key in self.in_dict:
+                        if (self.in_dict[key] == value):
+                            new_dict[key] = value
+                            break
+                            
+                return new_dict
+            
+            if (decending == True):
+                NotImplementedError()
+            
